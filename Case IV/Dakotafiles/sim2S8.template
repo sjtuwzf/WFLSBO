@@ -1,0 +1,230 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // actuatorDisk1
+    {
+        name    actuatorDisk1a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x1}*126" #calc "-7.5*0.707107+{y1}*126" #calc "90.0+150.0*Foam::exp(-({x1}*126*{x1}*126+{y1}*126*{y1}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x1}*126" #calc "7.5*0.707107+{y1}*126" #calc "90.0+150.0*Foam::exp(-({x1}*126*{x1}*126+{y1}*126*{y1}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk2
+    {
+        name    actuatorDisk2a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x2}*126" #calc "-7.5*0.707107+{y2}*126" #calc "90.0+150.0*Foam::exp(-({x2}*126*{x2}*126+{y2}*126*{y2}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x2}*126" #calc "7.5*0.707107+{y2}*126" #calc "90.0+150.0*Foam::exp(-({x2}*126*{x2}*126+{y2}*126*{y2}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk3
+    {
+        name    actuatorDisk3a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x3}*126" #calc "-7.5*0.707107+{y3}*126" #calc "90.0+150.0*Foam::exp(-({x3}*126*{x3}*126+{y3}*126*{y3}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x3}*126" #calc "7.5*0.707107+{y3}*126" #calc "90.0+150.0*Foam::exp(-({x3}*126*{x3}*126+{y3}*126*{y3}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk4
+    {
+        name    actuatorDisk4a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x4}*126" #calc "-7.5*0.707107+{y4}*126" #calc "90.0+150.0*Foam::exp(-({x4}*126*{x4}*126+{y4}*126*{y4}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x4}*126" #calc "7.5*0.707107+{y4}*126" #calc "90.0+150.0*Foam::exp(-({x4}*126*{x4}*126+{y4}*126*{y4}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk5
+    {
+        name    actuatorDisk5a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x5}*126" #calc "-7.5*0.707107+{y5}*126" #calc "90.0+150.0*Foam::exp(-({x5}*126*{x5}*126+{y5}*126*{y5}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x5}*126" #calc "7.5*0.707107+{y5}*126" #calc "90.0+150.0*Foam::exp(-({x5}*126*{x5}*126+{y5}*126*{y5}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk6
+    {
+        name    actuatorDisk6a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x6}*126" #calc "-7.5*0.707107+{y6}*126" #calc "90.0+150.0*Foam::exp(-({x6}*126*{x6}*126+{y6}*126*{y6}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x6}*126" #calc "7.5*0.707107+{y6}*126" #calc "90.0+150.0*Foam::exp(-({x6}*126*{x6}*126+{y6}*126*{y6}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk7
+    {
+        name    actuatorDisk7a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x7}*126" #calc "-7.5*0.707107+{y7}*126" #calc "90.0+150.0*Foam::exp(-({x7}*126*{x7}*126+{y7}*126*{y7}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x7}*126" #calc "7.5*0.707107+{y7}*126" #calc "90.0+150.0*Foam::exp(-({x7}*126*{x7}*126+{y7}*126*{y7}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    // actuatorDisk8
+    {
+        name    actuatorDisk8a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-0.707107+{x8}*126" #calc "-7.5*0.707107+{y8}*126" #calc "90.0+150.0*Foam::exp(-({x8}*126*{x8}*126+{y8}*126*{y8}*126)/(2*300.0*300.0))");
+            p2 ( #calc "7.5*-0.707107+{x8}*126" #calc "7.5*0.707107+{y8}*126" #calc "90.0+150.0*Foam::exp(-({x8}*126*{x8}*126+{y8}*126*{y8}*126)/(2*300.0*300.0))");
+            radius 66; 
+        }
+    }
+
+    {
+        name    actuatorDisk1;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk1a;
+	}
+    }
+
+    {
+        name    actuatorDisk2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk2a;
+	}
+    }
+
+    {
+        name    actuatorDisk3;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk3a;
+	}
+    }
+
+    {
+        name    actuatorDisk4;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk4a;
+	}
+    }
+
+    {
+        name    actuatorDisk5;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk5a;
+	}
+    }
+
+    {
+        name    actuatorDisk6;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk6a;
+	}
+    }
+
+    {
+        name    actuatorDisk7;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk7a;
+	}
+    }
+
+    {
+        name    actuatorDisk8;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk8a;
+	}
+    }
+
+);
+
+// ************************************************************************* //

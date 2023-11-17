@@ -1,0 +1,115 @@
+#@ s0: UserMan=sbo_WFLO
+# DAKOTA INPUT FILE - sbo_WFLO.in
+# Dakota Input File: sbo_WFLO.in         #s0
+
+# Surrogate-based optimization to maximize AEP
+# of wind farm.
+
+environment
+  tabular_data
+    tabular_data_file = 'adm_AEP.dat'   
+  top_method_pointer = 'SBGO'
+
+method
+  id_method = 'SBGO'
+  surrogate_based_global
+    method_pointer = 'SOGA'
+    model_pointer = 'SURROGATE'
+    max_iterations = 1000
+
+variables
+  discrete_design_range = 16
+    descriptors		'x1' 'y1' 'x2' 'y2' 'x3' 'y3' 'x4' 'y4' 'x5' 'y5' 'x6' 'y6' 'x7' 'y7' 'x8' 'y8'
+    lower_bounds	-4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 
+    upper_bounds	4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+
+
+################################################
+# begin opt specification
+################################################
+method
+  id_method = 'SOGA'
+  soga
+  fitness_type		merit_function constraint_penalty=0.95
+  replacement_type	elitist
+  convergence_type	best_fitness_tracker
+  percent_change = 0.1
+  num_generations = 100
+
+  max_function_evaluations = 20000
+
+  population_size=50
+  print_each_pop
+  initialization_type	unique_random
+  crossover_type
+	multi_point_parameterized_binary = 2
+	crossover_rate = 0.95
+  mutation_type
+	bit_random
+	mutation_rate = 0.15
+  convergence_tolerance =1.e-2
+  seed = 11000
+ final_solutions = 3
+ output
+  silent
+
+model
+  id_model = 'SURROGATE'
+  surrogate global
+    gaussian_process surfpack
+    dace_method_pointer = 'SAMPLING'
+#    actual_model_pointer = 'TRUTH'
+    import_build_points_file = 'adm_lhs_360.dat'
+    correction additive zeroth_order
+  responses_pointer = 'SURROGATE_RESP'
+
+responses
+  id_responses = 'SURROGATE_RESP'
+  objective_functions = 1
+    sense = 'maximization'
+  nonlinear_inequality_constraints = 1
+    lower_bounds = 2 
+    upper_bounds = 20
+  descriptors  'AEP' 'mindistance'
+  no_gradients
+  no_hessians
+
+################################################
+# sampling
+################################################
+method
+  id_method = 'SAMPLING'
+  sampling
+    samples = 360
+    sample_type lhs
+    model_pointer = 'TRUTH'
+
+interface
+  id_interface = 'TRUE_FN'
+  analysis_drivers = 'sbo_WFLO_driver.sh'
+    fork
+      parameters_file = 'params.in'
+      results_file = 'results.out'
+      file_tag
+      file_save
+
+responses
+  id_responses = 'TRUE_RESP'
+  objective_functions = 1
+    sense = 'maximization'
+  nonlinear_inequality_constraints = 1
+    lower_bounds = 2 
+    upper_bounds = 20
+  descriptors  'AEP' 'mindistance'
+  no_gradients
+  no_hessians
+ 
+ 
+model
+  id_model = 'TRUTH'
+  single
+    interface_pointer = 'TRUE_FN'
+    responses_pointer = 'TRUE_RESP'  
+    
+    
+    
