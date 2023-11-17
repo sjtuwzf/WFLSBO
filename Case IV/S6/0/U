@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform $flowVelocity;
+
+boundaryField
+{
+    up
+    {
+    	type 		slip;
+    }
+
+    down
+    {
+        type        fixedValue;
+	value	    uniform (0 0 0);
+    }
+
+    terrain
+    {
+        type        fixedValue;
+	value	    uniform (0 0 0);
+    }
+
+    outlet
+    {
+        type        zeroGradient;	
+    }
+
+    inlet
+    {
+	type	   	 codedFixedValue;
+	value	   	 uniform (0 0 0);
+	redirectType	 parabolic;
+	
+	code
+	#{
+	const fvPatch& boundaryPatch = this->patch();
+	const vectorField& Cf = boundaryPatch.Cf();
+
+	vectorField& v = *this;
+	scalar alpha = 0.14;
+	scalar U_ref = 10.9;
+	scalar H_ref = 250;
+	
+	forAll(Cf,faceI)
+	{
+		scalar zz = Cf[faceI].z();
+		v[faceI] = vector(U_ref*pow(zz/H_ref, alpha)*0.70711, U_ref*pow(zz/H_ref, alpha)*0.70711, 0);
+	}
+	 #};
+    }
+
+    "proc.*"
+    {
+        type            processor;
+    }
+
+
+
+}
+
+
+// ************************************************************************* //

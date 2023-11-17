@@ -1,0 +1,160 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    p
+    {
+        solver           GAMG;
+        tolerance        1e-7;
+        relTol           0.1;
+        smoother         GaussSeidel;
+    }
+
+    U
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+
+    k
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+
+    epsilon
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 0;
+
+    residualControl
+    {
+        p               1e-3;
+        U               1e-4;
+        "(k|epsilon)"   1e-4;
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p               0.3;
+    }
+    equations
+    {
+        U               0.7;
+        k               0.7;
+        epsilon         0.7;
+    }
+}
+
+cache
+{
+    grad(U);
+}
+
+actuatorDisk1
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+0*126" #calc "-6.3*-0.707107+3*126" #calc "90.0+150.0*Foam::exp(-(0*126*0*126+3*126*3*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+0*126" #calc "6.3*-0.707107+3*126" #calc "90.0+150.0*Foam::exp(-(0*126*0*126+3*126*3*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk2
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+4*126" #calc "-6.3*-0.707107+-4*126" #calc "90.0+150.0*Foam::exp(-(4*126*4*126+-4*126*-4*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+4*126" #calc "6.3*-0.707107+-4*126" #calc "90.0+150.0*Foam::exp(-(4*126*4*126+-4*126*-4*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk3
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+-1*126" #calc "-6.3*-0.707107+1*126" #calc "90.0+150.0*Foam::exp(-(-1*126*-1*126+1*126*1*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+-1*126" #calc "6.3*-0.707107+1*126" #calc "90.0+150.0*Foam::exp(-(-1*126*-1*126+1*126*1*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk4
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+2*126" #calc "-6.3*-0.707107+0*126" #calc "90.0+150.0*Foam::exp(-(2*126*2*126+0*126*0*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+2*126" #calc "6.3*-0.707107+0*126" #calc "90.0+150.0*Foam::exp(-(2*126*2*126+0*126*0*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk5
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+0*126" #calc "-6.3*-0.707107+-1*126" #calc "90.0+150.0*Foam::exp(-(0*126*0*126+-1*126*-1*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+0*126" #calc "6.3*-0.707107+-1*126" #calc "90.0+150.0*Foam::exp(-(0*126*0*126+-1*126*-1*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk6
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+-4*126" #calc "-6.3*-0.707107+2*126" #calc "90.0+150.0*Foam::exp(-(-4*126*-4*126+2*126*2*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+-4*126" #calc "6.3*-0.707107+2*126" #calc "90.0+150.0*Foam::exp(-(-4*126*-4*126+2*126*2*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk7
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+1*126" #calc "-6.3*-0.707107+-3*126" #calc "90.0+150.0*Foam::exp(-(1*126*1*126+-3*126*-3*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+1*126" #calc "6.3*-0.707107+-3*126" #calc "90.0+150.0*Foam::exp(-(1*126*1*126+-3*126*-3*126)/(2*300.0*300.0))");
+}
+
+actuatorDisk8
+{
+    interiorRadius        1.5;
+    exteriorRadius        63;
+    density               1.225;
+    startPoint            (#calc "-6.3*0.707107+-2*126" #calc "-6.3*-0.707107+-2*126" #calc "90.0+150.0*Foam::exp(-(-2*126*-2*126+-2*126*-2*126)/(2*300.0*300.0))");
+    endPoint              (#calc "6.3*0.707107+-2*126" #calc "6.3*-0.707107+-2*126" #calc "90.0+150.0*Foam::exp(-(-2*126*-2*126+-2*126*-2*126)/(2*300.0*300.0))");
+}
+
+
+// ************************************************************************* //
