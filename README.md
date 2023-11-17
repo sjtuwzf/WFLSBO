@@ -4,7 +4,7 @@ The SBO-based wind farm layout optimization are carried out
 with OpenFOAM 4.x and DAKOTA 6.12. 
 In this framework, CFD simulations with rotors simplified as actuator disk are performed to predict AEP of wind farm on OpenFOAM. 
 Construction of Kriging and implementation of SBO method are carried out using DAKOTA.
-Four wind farm cases are optimized using this framework. 
+Two wind farm cases are optimized using this framework in the .zip. 
 
 
 ## Running the framework
