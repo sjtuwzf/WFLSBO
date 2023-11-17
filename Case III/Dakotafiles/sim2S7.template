@@ -1,0 +1,230 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // actuatorDisk1
+    {
+        name    actuatorDisk1a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x1}*126" #calc "-7.5*0+{y1}*126" 90);
+            p2 ( #calc "7.5*-1+{x1}*126" #calc "7.5*0+{y1}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk2
+    {
+        name    actuatorDisk2a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x2}*126" #calc "-7.5*0+{y2}*126" 90);
+            p2 ( #calc "7.5*-1+{x2}*126" #calc "7.5*0+{y2}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk3
+    {
+        name    actuatorDisk3a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x3}*126" #calc "-7.5*0+{y3}*126" 90);
+            p2 ( #calc "7.5*-1+{x3}*126" #calc "7.5*0+{y3}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk4
+    {
+        name    actuatorDisk4a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x4}*126" #calc "-7.5*0+{y4}*126" 90);
+            p2 ( #calc "7.5*-1+{x4}*126" #calc "7.5*0+{y4}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk5
+    {
+        name    actuatorDisk5a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x5}*126" #calc "-7.5*0+{y5}*126" 90);
+            p2 ( #calc "7.5*-1+{x5}*126" #calc "7.5*0+{y5}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk6
+    {
+        name    actuatorDisk6a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x6}*126" #calc "-7.5*0+{y6}*126" 90);
+            p2 ( #calc "7.5*-1+{x6}*126" #calc "7.5*0+{y6}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk7
+    {
+        name    actuatorDisk7a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x7}*126" #calc "-7.5*0+{y7}*126" 90);
+            p2 ( #calc "7.5*-1+{x7}*126" #calc "7.5*0+{y7}*126" 90);
+            radius 63; 
+        }
+    }
+
+    // actuatorDisk8
+    {
+        name    actuatorDisk8a;
+        type    cellSet;
+        action  new;
+        source  cylinderToCell;
+        sourceInfo
+        {
+            type cylinder; 
+            p1 ( #calc "-7.5*-1+{x8}*126" #calc "-7.5*0+{y8}*126" 90);
+            p2 ( #calc "7.5*-1+{x8}*126" #calc "7.5*0+{y8}*126" 90);
+            radius 63; 
+        }
+    }
+
+    {
+        name    actuatorDisk1;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk1a;
+	}
+    }
+
+    {
+        name    actuatorDisk2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk2a;
+	}
+    }
+
+    {
+        name    actuatorDisk3;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk3a;
+	}
+    }
+
+    {
+        name    actuatorDisk4;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk4a;
+	}
+    }
+
+    {
+        name    actuatorDisk5;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk5a;
+	}
+    }
+
+    {
+        name    actuatorDisk6;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk6a;
+	}
+    }
+
+    {
+        name    actuatorDisk7;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk7a;
+	}
+    }
+
+    {
+        name    actuatorDisk8;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+		set	actuatorDisk8a;
+	}
+    }
+
+);
+
+// ************************************************************************* //

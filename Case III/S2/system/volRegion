@@ -1,0 +1,161 @@
+    totalpower
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	all;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk1
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk1;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk2
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk2;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk3
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk3;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk4
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk4;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk5
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk5;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk6
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk6;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk7
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk7;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
+    actuatorDisk8
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	cellZone;
+	name		actuatorDisk8;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
