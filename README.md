@@ -1,3 +1,4 @@
+This repo contains the setups for the cases of wind farm layout optimization using actuator disk model.
 
 # Introduction
 The SBO-based wind farm layout optimization are carried out 
