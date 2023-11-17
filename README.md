@@ -16,7 +16,7 @@ Three types of files are defined mannually for running this framework.
 
 3.AEP file: Wind farm power output obtained from CFD simulations are transffered to this directories automatically with shell script defined in Dakotafile. calcAEP.py in this directory is defined according to wind rose. It is used to calculate AEP of wind farm.
 
-If you hope to run this framework, you should execute commands below in the Dakotafile terminals：
+File location in the shell scripts are all absolute location, and thus users need to modify them. If you hope to run this framework, you should execute commands below in the Dakotafile terminals：
 
 ```
 dakota sbo_WFLO.in
