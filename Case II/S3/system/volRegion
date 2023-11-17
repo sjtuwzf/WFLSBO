@@ -1,0 +1,17 @@
+    totalpower
+    {
+	type		volRegion;
+	libs		("libfieldFunctionObjects.so");
+	writeFields	true;
+	regionType	all;
+	operation	sum;
+	
+	fields
+	(
+		Power
+	);
+
+	writeControl	timeStep;
+	writeInterval   100;
+
+    }
