@@ -1,4 +1,4 @@
-This repo contains the setups for the cases of wind farm layout optimization using actuator disk model.
+This repo contains the case files for the paper: Wang, Zhenfan, Yu Tu, Kai Zhang, Zhaolong Han, Yong Cao, and Dai Zhou. "An optimization framework for wind farm layout design using CFD-based Kriging model." arXiv preprint arXiv:2309.01387 (2023).
 
 # Introduction
 The SBO-based wind farm layout optimization are carried out 
