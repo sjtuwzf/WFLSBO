@@ -53,7 +53,7 @@ boundaryField
 	vectorField& v = *this;
 	scalar alpha = 0.14;
 	scalar U_ref = 8.2;
-	scalar H_ref = 250;
+	scalar H_ref = 90;
 	
 	forAll(Cf,faceI)
 	{
